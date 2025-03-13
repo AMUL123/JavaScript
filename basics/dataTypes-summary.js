@@ -8,3 +8,7 @@
 //#Reference (Non-Premitive)
 
 //Array, Objects, Functions 
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Stack (Primitive), Heap (Non-Primitive) 
+let myYoutubeName = "amul1232332"  
