@@ -42,11 +42,12 @@
     newli.textContent="Mojo";
     secondLang.replaceWith(newli);
 
-    //edit
-
     const firstLang = document.querySelector('li:first-child');
-    const newli=document.createElement("li");
-    newli.textContent=""
+    firstLang.outerHTML='<li>typescript</li>'
+
+    //remove
+    const lastLang= document.querySelector('li:last-child');
+    lastLang.remove();
 
 </script>
 </html>
