@@ -65,7 +65,7 @@ if(bmi <18.5){
 
 })
 ```
-## Project Digital clock
+## Project (Digital clock)
 
 ```javaScript
 const clock=document.getElementById('clock');
