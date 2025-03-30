@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: #212121;
+            color: aliceblue;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .card {
+            width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #333;
+        }
+        .card h2 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        .card p {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body >
+    <div id="userCard" class="card">
+        <h2>Loading...</h2>
+    </div>
+
+    0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+
+
+</body>
+<script>
+    const requestUrl='https://api.github.com/users/AMUL123';
+    const xhr= new XMLHttpRequest();
+    xhr.open('GET',requestUrl);
+    xhr.onreadystatechange= function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            const data= JSON.parse(this.responseText); // Fixed typo here
+            console.log(typeof data);
+            console.log(data.followers);
+            const userCard= document.getElementById('userCard');
+            userCard.innerHTML=`
+            <img src="${data.avatar_url}" alt="User Image">
+            <h2>${data.login}</h2>
+            <p>Followers: ${data.followers}</p>
+            `;
+        }
+    };
+    xhr.send();
+</script>
+</html>
